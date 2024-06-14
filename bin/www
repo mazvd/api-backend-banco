@@ -4,8 +4,8 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('apibanco:server');
+var app = require('../src/app');
+var debug = require('debug')('musicas-api:server');
 var http = require('http');
 
 /**

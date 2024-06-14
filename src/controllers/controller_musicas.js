@@ -13,7 +13,7 @@ async function validar(req, res, next) {
 }
 
 async function criar(req, res) {
-  const musicas = await Musica.create(req.body);
+  const musica = await Musica.create(req.body);
   res.status(201).json(musica);
 }
 

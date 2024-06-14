@@ -1,0 +1,105 @@
+openapi: 3.0.0
+info:
+  title: API de Músicas
+  description: API para gerenciamento de músicas
+  version: 1.0.0
+paths:
+  /musicas:
+    get:
+      summary: Listar todas as músicas
+      responses:
+        '200':
+          description: Lista de músicas obtida com sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Musica'
+    post:
+      summary: Criar uma nova música
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Musica'
+      responses:
+        '201':
+          description: Música criada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Musica'
+        '422':
+          description: Dados inválidos ou ausentes
+  /musicas/{id}:
+    get:
+      summary: Obter uma música pelo ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Música encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Musica'
+        '404':
+          description: Música não encontrada
+    put:
+      summary: Atualizar uma música pelo ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Musica'
+      responses:
+        '200':
+          description: Música atualizada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Musica'
+        '404':
+          description: Música não encontrada
+        '422':
+          description: Dados inválidos ou ausentes
+    delete:
+      summary: Deletar uma música pelo ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Música deletada com sucesso
+        '404':
+          description: Música não encontrada
+components:
+  schemas:
+    Musica:
+      type: object
+      properties:
+        titulo:
+          type: string
+          description: Título da música
+        album:
+          type: string
+          description: Álbum da música
+        artista:
+          type: string
+          description: Artista da música

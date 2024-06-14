@@ -11,12 +11,7 @@ const schemaMusica = new mongoose.Schema({
   },
   artista: {
     type: String,
-  },
-  ano: {
-    type: Number,
-    max: 4
   }
-
 });
 
 module.exports = mongoose.model('Musica', schemaMusica);

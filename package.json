@@ -4,15 +4,22 @@
   "description": "api de musicas desenvolvida em nodejs com mongodb e express",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./bin/www"
+    "test": "jest --watchAll",
+    "start": "node ./bin/www",
+    "dev": "nodemon -e yaml,js ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
+    "crypto": "^1.0.1",
     "debug": "~2.6.9",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.4.1",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "swagger-ui-express": "^5.0.1",
+    "yaml": "^2.4.5"
   },
   "devDependencies": {
     "jest": "^29.7.0",
