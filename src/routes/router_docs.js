@@ -7,7 +7,7 @@ const router = express.Router();
 
 
 try {
-  const file = fs.readFileSync("/home/matheus/projeto-math/musicas-api/swagger.yaml", "utf-8");
+  const file = fs.readFileSync("./swagger.yaml", "utf-8");
   const swaggerDoc = yaml.parse(file);
 
   router.use("/", swaggerUI.serve);

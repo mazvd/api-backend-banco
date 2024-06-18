@@ -2,12 +2,12 @@ const jwt = require('jsonwebtoken');
 
 function validarToken(req, res, next) {
     const token = req.headers['authorization'];
-    if (token) {
+    if (token) { 
+        try {
+            console.log(token);
         const payload = jwt.verify(token, process.env.SEGREDO);
-        if (payload) {
-            console.log(payload);
             next();
-        } else {
+        } catch(err) { 
             res.status(401).json({msg: "acesso negado"})
         }
     } else {

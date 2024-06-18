@@ -20,7 +20,7 @@ app.use(cookieParser());
 
 app.use('/docs', routerDocs);
 app.use('/musicas', routerMusicas);
-app.use('/usuario', routerUsuario)
+app.use('/usuario', routerUsuario);
 
 module.exports = app;
 
